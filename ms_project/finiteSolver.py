@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.quiver import Quiver
+from matplotlib.patches import Circle, Rectangle
 
 class ElectrostaticFDSolver:
     """
@@ -290,23 +291,61 @@ class ElectrostaticFDSolver:
 
         return (ex, ey)
 
+class ElectrostaticFDSolverWithGeometry(ElectrostaticFDSolver):
+    """
+    Extended solver with geometric drawing capabilities.
+    """
+
+    def draw_circle(self, center, radius, value):
+        """
+        Draw a circle on the charge density grid.
+
+        Args:
+            center: Tuple of (x, y) coordinates of the circle center in meters.
+            radius: Radius of the circle in meters.
+            value: Charge density value inside the circle.
+        """
+        cx, cy = center
+        for i in range(self.grid_size[0]):
+            for j in range(self.grid_size[1]):
+                x = i * self.dx
+                y = j * self.dy
+                if (x - cx)**2 + (y - cy)**2 <= radius**2:
+                    self.charges[i, j] = value
+
+    def draw_rectangle(self, bottom_left, width, height, value):
+        """
+        Draw a rectangle on the charge density grid.
+
+        Args:
+            bottom_left: Tuple of (x, y) coordinates of the bottom-left corner in meters.
+            width: Width of the rectangle in meters.
+            height: Height of the rectangle in meters.
+            value: Charge density value inside the rectangle.
+        """
+        x0, y0 = bottom_left
+        for i in range(self.grid_size[0]):
+            for j in range(self.grid_size[1]):
+                x = i * self.dx
+                y = j * self.dy
+                if x0 <= x <= x0 + width and y0 <= y0 + height:
+                    self.charges[i, j] = value
+
 # Example usage
 if __name__ == "__main__":
-    # Create a solver with 100x100 grid over a 1m x 1m domain
-    solver = ElectrostaticFDSolver(grid_size=(100, 100), extent=(1.0, 1.0))
-    
-    # Add some point charges (in Coulombs)
-    solver.add_point_charge(1e-9, (0.3, 0.5))  # +1nC at (0.3, 0.5)
-    solver.add_point_charge(-1e-9, (0.7, 0.5))  # -1nC at (0.7, 0.5)
-    
+    # Create an extended solver with 100x100 grid over a 1m x 1m domain
+    solver = ElectrostaticFDSolverWithGeometry(grid_size=(100, 100), extent=(1.0, 1.0))
+
+    # Draw a circle with positive charge density
+    solver.draw_circle(center=(0.5, 0.5), radius=0.1, value=1e-9)
+
+    # Draw a rectangle with negative charge density
+    solver.draw_rectangle(bottom_left=(0.2, 0.2), width=0.2, height=0.1, value=-1e-9)
+
     # Solve the system
     solver.solve()
-    
+
     # Visualize results
     solver.plot_potential()
     solver.plot_field()
-    
-    # Get field at a specific point
-    point = (0.4, 0.6)
-    Ex, Ey = solver.get_field_at_point(*point)
-    print(f"Electric field at {point}: Ex={Ex:.2f}, Ey={Ey:.2f} V/m")
+
