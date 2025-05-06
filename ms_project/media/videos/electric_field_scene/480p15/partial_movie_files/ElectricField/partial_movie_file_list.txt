@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/1185818338_4150841660_3389635261.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/624642324_2834709167_4133340960.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/624642324_2834709167_717398083.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/624642324_2771243360_1497367199.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/624642324_2834709167_3099634865.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/624642324_2165476695_1237235026.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/electric_field_scene/480p15/partial_movie_files/ElectricField/4013836545_2688965532_1039993896.mp4'

@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/curl and devergance/480p15/partial_movie_files/Introduction/1185818338_713505920_1744488661.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/curl and devergance/480p15/partial_movie_files/Introduction/3209315413_2688965532_331435723.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/curl and devergance/480p15/partial_movie_files/Introduction/3209315413_2861783269_1552810573.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/curl and devergance/480p15/partial_movie_files/Introduction/3209315413_2731633606_2286622077.mp4'
+file 'file:C:/Users/PADIDAR/manimations/ms_project/media/videos/curl and devergance/480p15/partial_movie_files/Introduction/3620691320_2834709167_3211587351.mp4'
